@@ -41,7 +41,7 @@ str_t   STRING (lower)  (SELF)
 {
     string_t    ret = STRING (copy) (self);
 
-    for (natural_t i = 0x0; ret[i]; i++)
+    for (natural_t i = 0x0; ret && ret[i]; i++)
         if ('A' <= ret[i] && ret[i] <= 'Z')
             ret[i]  += STRING (latin_offset);
 
