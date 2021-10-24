@@ -46,13 +46,13 @@ str_t   STRING (join)   (SELF, OTHER, const string_t by)
                                  + 0x1
                                  );
 
-    for (natural_t i = 0x0; self[i];  counter++, i++)
+    for (natural_t i = 0x0; ret && self[i];  counter++, i++)
         ret[counter] = self[i];
 
-    for (natural_t i = 0x0; by[i];    counter++, i++)
+    for (natural_t i = 0x0; ret && by[i];    counter++, i++)
         ret[counter] = by[i];
 
-    for (natural_t i = 0x0; other[i]; counter++, i++)
+    for (natural_t i = 0x0; ret && other[i]; counter++, i++)
         ret[counter] = other[i];
 
     return ret;
