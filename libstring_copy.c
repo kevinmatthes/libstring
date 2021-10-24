@@ -41,8 +41,9 @@ str_t   STRING (copy)   (SELF)
 {
     string_t    ret = string (STRING (len) (self) + 0x1);
 
-    for (natural_t i = 0x0; self[i]; i++)
-        ret[i] = self[i];
+    if (ret)
+        for (natural_t i = 0x0; self[i]; i++)
+            ret[i] = self[i];
 
     return ret;
 }
