@@ -106,3 +106,12 @@ In order to compile the testing application, the command to execute is
 ```
 make test-libstring
 ```
+
+When used as a submodule in another project, this project offers the utility
+build instruction `submodule`.  When executing this task, the library will be
+created and copied to the parent working directory together will all relevant
+headers of this project.
+
+```
+make submodule
+```
