@@ -96,11 +96,12 @@ extern  str_t       string          (const natural_t size);
 // The methods.
 extern  str_t       STRING (concat) (SELF, OTHER);
 extern  str_t       STRING (copy)   (SELF);
-extern  void        STRING (del)    (                     str_t    self);
+extern  void        STRING (del)    (                     str_t     self);
 extern  bool        STRING (eq)     (SELF, OTHER);
-extern  str_t       STRING (join)   (SELF, OTHER,   const string_t by);
+extern  str_t       STRING (join)   (SELF, OTHER,   const string_t  by);
 extern  natural_t   STRING (len)    (SELF);
 extern  str_t       STRING (lower)  (SELF);
+extern  str_t       STRING (mul)    (SELF,          const natural_t times);
 extern  str_t       STRING (upper)  (SELF);
 
 
