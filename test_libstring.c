@@ -46,7 +46,6 @@ void    test_join       (void);
 void    test_len        (void);
 void    test_lower      (void);
 void    test_mul        (void);
-void    test_string     (void);
 void    test_upper      (void);
 
 
@@ -174,21 +173,33 @@ void    test_len    (void)
 
 void    test_lower  (void)
 {
+    const string_t  expectation = "test";
+    const string_t  test        = "Test";
+    string_t        lower       = string_lower (test);
+
+    string_del (lower);
+
     return;
 }
 
 void    test_mul    (void)
 {
-    return;
-}
+    const string_t  test    = "Test";
+    string_t        mul     = string_mul (test, 0x4);
 
-void    test_string (void)
-{
+    string_del (mul);
+
     return;
 }
 
 void    test_upper  (void)
 {
+    const string_t  expectation = "TEST";
+    const string_t  test        = "Test";
+    string_t        upper       = string_upper (test);
+
+    string_del (upper);
+
     return;
 }
 
@@ -208,7 +219,6 @@ int main (void)
     test_len        ();
     test_lower      ();
     test_mul        ();
-    test_string     ();
     test_upper      ();
 
     return 0x0;
