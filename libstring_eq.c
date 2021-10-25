@@ -37,3 +37,13 @@
  * Functions.
  */
 
+bool    STRING (eq) (SELF, OTHER)
+{
+    bool    ret = STRING (len) (self) == STRING (len) (other);
+
+    for (natural_t i = 0x0; ret && self[i]; i++)
+        if (self[i] != other[i])
+            ret = false;
+
+    return ret;
+}
