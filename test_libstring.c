@@ -42,11 +42,48 @@ void    test_concat     (void);
 void    test_constants  (void);
 void    test_copy       (void);
 void    test_del        (void);
+void    test_eq         (void);
 void    test_join       (void);
 void    test_len        (void);
 void    test_lower      (void);
+void    test_mul        (void);
 void    test_string     (void);
 void    test_upper      (void);
+
+
+
+/**
+ * Local auxillary functions.
+ */
+
+void    test_concat (void)
+{
+    const string_t  test    = "Test";
+    string_t        concat  = string_concat (test, test);
+
+    printf ( "str_t string_concat (const string_t self, const string_t other):\n"
+             "* Reference object: '%s' (%p), %lld char(s).\n"
+             "* Expectation: '%s%s', %lld char(s).\n"
+             "* Result: '%s' (%p), %lld char(s).\n\n"
+           , test,   test,   string_len (test)
+           , test,   test,   string_len (test) << 1
+           , concat, concat, string_len (concat)
+           );
+
+    string_del (concat);
+
+    return;
+}
+
+void    test_constants  (void)
+{
+    printf ( "Constants:\n"
+             "* const int string_latin_offset: %d (0x%x).\n\n"
+           , string_latin_offset, string_latin_offset
+           );
+
+    return;
+}
 
 
 
