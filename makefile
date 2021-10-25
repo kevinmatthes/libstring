@@ -36,7 +36,7 @@
 ##
 
 AFLAGS   := rs
-APP      := test
+APP      := test-libstring
 ARCHIVE  := ar
 CC       := gcc
 CFLAGS   := -std=c99 -Wall -Werror -Wextra -Wpedantic -D__LIBSTRING_INTERNAL__
@@ -60,10 +60,10 @@ VFLAGS   := --leak-check=full --redzone-size=200 --show-leak-kinds=all
 ##
 
 .PHONY: default
-default: $(LIBRARY) tidy
+default: valgrind tidy
 
 $(APP): $(LIBRARY) $(TESTING)
-	$(COMPILER) $(CFLAGS) $(TESTING) $(TESTLINK) -o $@
+	$(CC) $(CFLAGS) $(TESTING) $(TESTLINK) -o $@
 
 $(LIBRARY): $(OBJECTS)
 	$(ARCHIVE) $(AFLAGS) $@ $^
