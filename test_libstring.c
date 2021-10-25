@@ -56,16 +56,17 @@ void    test_upper      (void);
 
 void    test_concat (void)
 {
-    const string_t  test    = "Test";
-    string_t        concat  = string_concat (test, test);
+    const string_t  expectation = "TestTest";
+    const string_t  test        = "Test";
+    string_t        concat      = string_concat (test, test);
 
     printf ( "str_t string_concat (const string_t self, const string_t other):\n"
              "* Reference object: '%s' (%p), %lld char(s).\n"
-             "* Expectation:      '%s%s', %lld char(s).\n"
+             "* Expectation:      '%s', %lld char(s).\n"
              "* Result:           '%s' (%p), %lld char(s).\n\n"
-           , test,   test,   string_len (test)
-           , test,   test,   string_len (test) << 0x1
-           , concat, concat, string_len (concat)
+           , test,          test,           string_len (test)
+           , expectation,                   string_len (expectation)
+           , concat,        concat,         string_len (concat)
            );
 
     string_del (concat);
@@ -77,7 +78,7 @@ void    test_constants  (void)
 {
     printf ( "Constants:\n"
              "* const int string_latin_offset: %d (0x%x).\n\n"
-           , string_latin_offset, string_latin_offset
+           , string_latin_offset,   string_latin_offset
            );
 
     return;
@@ -92,9 +93,9 @@ void    test_copy   (void)
              "* Reference object: '%s' (%p), %lld char(s).\n"
              "* Expectation:      '%s', %lld char(s).\n"
              "* Result:           '%s' (%p), %lld char(s).\n\n"
-           , test, test, string_len (test)
-           , test,       string_len (test)
-           , copy, copy, string_len (copy)
+           , test,  test,   string_len (test)
+           , test,          string_len (test)
+           , copy,  copy,   string_len (copy)
            );
 
     string_del (copy);
@@ -121,15 +122,15 @@ void    test_eq (void)
              "  - '%s' vs. '%s': %s.\n"
              "  - '%s' vs. '%s': %s.\n"
              "  - '%s' vs. '%s': %s.\n\n"
-           , test,    test,    string_len (test)
-           , copy,    copy,    string_len (copy)
-           , unequal, unequal, string_len (unequal)
-           , test,    test
-           , test,    copy
-           , test,    unequal
-           , test,    test,    string_eq (test, test)    ? "true" : "false"
-           , test,    copy,    string_eq (test, copy)    ? "true" : "false"
-           , test,    unequal, string_eq (test, unequal) ? "true" : "false"
+           , test,      test,       string_len (test)
+           , copy,      copy,       string_len (copy)
+           , unequal,   unequal,    string_len (unequal)
+           , test,      test
+           , test,      copy
+           , test,      unequal
+           , test,      test,       string_eq (test, test)      ? "true"    : "false"
+           , test,      copy,       string_eq (test, copy)      ? "true"    : "false"
+           , test,      unequal,    string_eq (test, unequal)   ? "true"    : "false"
            );
 
     string_del (copy);
@@ -139,16 +140,17 @@ void    test_eq (void)
 
 void    test_join   (void)
 {
-    const string_t  test    = "Test";
-    string_t        join    = string_join (test, test, test);
+    const string_t  expectation = "TestTestTest";
+    const string_t  test        = "Test";
+    string_t        join        = string_join (test, test, test);
 
     printf ( "str_t string_join (const string_t self, const string_t other, const string_t by):\n"
              "* Reference object: '%s' (%p), %lld char(s).\n"
-             "* Expectation:      '%s%s%s', %lld char(s).\n"
+             "* Expectation:      '%s', %lld char(s).\n"
              "* Result:           '%s' (%p), %lld char(s).\n\n"
-           , test, test,       string_len (test)
-           , test, test, test, string_len (test) * 0x3
-           , join, join,       string_len (join)
+           , test,          test,           string_len (test)
+           , expectation,                   string_len (expectation)
+           , join,          join,           string_len (join)
            );
 
     string_del (join);
@@ -164,7 +166,7 @@ void    test_len    (void)
     printf ( "natural_t string_len (const string_t self):\n"
              "* Reference object: %s (%p), %lld char(s).\n"
              "* Measured length:  %lld char(s).\n\n"
-           , test, test, length
+           , test,              test,   length
            , string_len (test)
            );
 
@@ -177,6 +179,15 @@ void    test_lower  (void)
     const string_t  test        = "Test";
     string_t        lower       = string_lower (test);
 
+    printf ( "str_t string_lower (const string_t self):\n"
+             "* Reference object: '%s' (%p), %lld char(s).\n"
+             "* Expectation:      '%s', %lld char(s).\n"
+             "* Result:           '%s' (%p), %lld char(s).\n\n"
+           , test,          test,   string_len (test)
+           , expectation,           string_len (expectation)
+           , lower,         lower,  string_len (lower)
+           );
+
     string_del (lower);
 
     return;
@@ -184,8 +195,18 @@ void    test_lower  (void)
 
 void    test_mul    (void)
 {
-    const string_t  test    = "Test";
-    string_t        mul     = string_mul (test, 0x4);
+    const string_t  expectation = "TestTestTestTest";
+    const string_t  test        = "Test";
+    string_t        mul         = string_mul (test, 0x4);
+
+    printf ( "str_t string_mul (const string_t self, const natural_t times):\n"
+             "* Reference object: '%s' (%p), %lld char(s).\n"
+             "* Expectation:      '%s', %lld char(s).\n"
+             "* Result:           '%s' (%p), %lld char(s).\n\n"
+           , test,          test,   string_len (test)
+           , expectation,           string_len (expectation)
+           , mul,           mul,    string_len (mul)
+           );
 
     string_del (mul);
 
@@ -197,6 +218,15 @@ void    test_upper  (void)
     const string_t  expectation = "TEST";
     const string_t  test        = "Test";
     string_t        upper       = string_upper (test);
+
+    printf ( "str_t string_mul (const string_t self, const natural_t times):\n"
+             "* Reference object: '%s' (%p), %lld char(s).\n"
+             "* Expectation:      '%s', %lld char(s).\n"
+             "* Result:           '%s' (%p), %lld char(s).\n\n"
+           , test,          test,   string_len (test)
+           , expectation,           string_len (expectation)
+           , upper,         upper,  string_len (upper)
+           );
 
     string_del (upper);
 
