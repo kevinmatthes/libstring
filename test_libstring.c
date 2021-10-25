@@ -103,6 +103,41 @@ void    test_copy   (void)
     return;
 }
 
+void    test_eq (void)
+{
+    const string_t  test    = "Test";
+    const string_t  unequal = "TesT";
+    string_t        copy    = string_copy (test);
+
+    printf ( "str_t string_eq (const string_t self, const string_t other):\n"
+             "* Reference objects:\n"
+             "  - '%s' (%p), %lld char(s).\n"
+             "  - '%s' (%p), %lld char(s).\n"
+             "  - '%s' (%p), %lld char(s).\n"
+             "* Expectations:\n"
+             "  - '%s' vs. '%s': true.\n"
+             "  - '%s' vs. '%s': true.\n"
+             "  - '%s' vs. '%s': false.\n"
+             "* Results:\n"
+             "  - '%s' vs. '%s': %s.\n"
+             "  - '%s' vs. '%s': %s.\n"
+             "  - '%s' vs. '%s': %s.\n\n"
+           , test,    test,    string_len (test)
+           , copy,    copy,    string_len (copy)
+           , unequal, unequal, string_len (unequal)
+           , test,    test
+           , test,    copy
+           , test,    unequal
+           , test,    test,    string_eq (test, test)    ? "true" : "false"
+           , test,    copy,    string_eq (test, copy)    ? "true" : "false"
+           , test,    unequal, string_eq (test, unequal) ? "true" : "false"
+           );
+
+    string_del (copy);
+
+    return;
+}
+
 
 
 /**
