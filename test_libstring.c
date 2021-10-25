@@ -109,7 +109,7 @@ void    test_eq (void)
     const string_t  unequal = "TesT";
     string_t        copy    = string_copy (test);
 
-    printf ( "str_t string_eq (const string_t self, const string_t other):\n"
+    printf ( "bool string_eq (const string_t self, const string_t other):\n"
              "* Reference objects:\n"
              "  - '%s' (%p), %lld char(s).\n"
              "  - '%s' (%p), %lld char(s).\n"
@@ -153,6 +153,21 @@ void    test_join   (void)
            );
 
     string_del (join);
+
+    return;
+}
+
+void    test_len    (void)
+{
+    const natural_t length  = 0x4;
+    const string_t  test    = "Test";
+
+    printf ( "natural_t string_len (const string_t self):\n"
+             "* Reference object: %s (%p), %lld char(s).\n"
+             "* Measured length:  %lld char(s).\n\n"
+           , test, test, length
+           , string_len (test)
+           );
 
     return;
 }
