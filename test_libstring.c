@@ -219,7 +219,7 @@ void    test_upper  (void)
     const string_t  test        = "Test";
     string_t        upper       = string_upper (test);
 
-    printf ( "str_t string_mul (const string_t self, const natural_t times):\n"
+    printf ( "str_t string_upper (const string_t self):\n"
              "* Reference object: '%s' (%p), %lld char(s).\n"
              "* Expectation:      '%s', %lld char(s).\n"
              "* Result:           '%s' (%p), %lld char(s).\n\n"
