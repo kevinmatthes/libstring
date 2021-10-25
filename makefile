@@ -40,6 +40,8 @@ APP      := test-libstring
 ARCHIVE  := ar
 CC       := gcc
 CFLAGS   := -std=c99 -Wall -Werror -Wextra -Wpedantic -D__LIBSTRING_INTERNAL__
+COPY     := cp
+HEADERS  := $(wildcard ./*.h)
 LFLAGS   :=
 LIBRARY  := libstring.a
 OBJECTS  := $(subst .c,.o, $(wildcard ./libstring_*.c))
@@ -70,6 +72,10 @@ $(LIBRARY): $(OBJECTS)
 
 $(OBJECTS): $(SOURCE)
 	$(CC) $(CFLAGS) -c $(LFLAGS) $^
+
+.PHONY: submodule
+submodule: $(HEADERS) $(LIBRARY)
+	$(COPY) $^ ../
 
 .PHONY: tidy
 tidy: $(APP) $(OBJECTS)

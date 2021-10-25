@@ -53,3 +53,19 @@ license is as follows:
 > You should have received a copy of the GNU General Public License along
 > with this program; if not, write to the Free Software Foundation, Inc.,
 > 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+
+
+## Required software for the build process
+
+In order to build the library, the following applications will be required when
+using the default settings for the build process.  All named software can be
+altered by adjusting the variables in `makefile`.
+
+Application | Variable in `makefile`    | Role during build process
+:-----------|:--------------------------|:--------------------------
+`ar`        | `ARCHIVE`                 | library creation
+`cp`        | `COPY`                    | copying of library
+`gcc`       | `CC`                      | compiler
+`rm`        | `REMOVE`                  | removal of build artifacts
+`valgrind`  | `VALGRIND`                | check for memory leaks
