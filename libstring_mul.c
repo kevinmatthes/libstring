@@ -37,9 +37,9 @@
  * Functions.
  */
 
-str_t   STRING (mul)    (SELF, const natural_t times)
+str_t   NAME (mul)  (SELF, const natural_t times)
 {
-    const natural_t chars   = STRING (len) (self);
+    const natural_t chars   = NAME (len) (self);
     const natural_t length  = chars * times;
     string_t        ret     = string (length + 0x1);
 

@@ -37,7 +37,7 @@
  * Functions.
  */
 
-inline  void    STRING (del)    (str_t self)
+inline  void    NAME (del)  (str_t self)
 {
     free (self);
     return;

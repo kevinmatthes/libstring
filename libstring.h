@@ -54,7 +54,7 @@
 #endif  // ! nullptr
 
 // Name mangling macro.
-#define STRING(identifier)  string_ ## identifier
+#define NAME(identifier)    string_ ## identifier
 
 
 
@@ -94,15 +94,15 @@ typedef char * const    string_t;
 extern  str_t       string          (const natural_t size);
 
 // The methods.
-extern  str_t       STRING (concat) (SELF, OTHER);
-extern  str_t       STRING (copy)   (SELF);
-extern  void        STRING (del)    (                     str_t     self);
-extern  bool        STRING (eq)     (SELF, OTHER);
-extern  str_t       STRING (join)   (SELF, OTHER,   const string_t  by);
-extern  natural_t   STRING (len)    (SELF);
-extern  str_t       STRING (lower)  (SELF);
-extern  str_t       STRING (mul)    (SELF,          const natural_t times);
-extern  str_t       STRING (upper)  (SELF);
+extern  str_t       NAME (concat)   (SELF, OTHER);
+extern  str_t       NAME (copy)     (SELF);
+extern  void        NAME (del)      (                     str_t     self);
+extern  bool        NAME (eq)       (SELF, OTHER);
+extern  str_t       NAME (join)     (SELF, OTHER,   const string_t  by);
+extern  natural_t   NAME (len)      (SELF);
+extern  str_t       NAME (lower)    (SELF);
+extern  str_t       NAME (mul)      (SELF,          const natural_t times);
+extern  str_t       NAME (upper)    (SELF);
 
 
 
@@ -110,7 +110,7 @@ extern  str_t       STRING (upper)  (SELF);
  * Constants.
  */
 
-extern const int    STRING (latin_offset);
+extern const int    NAME (latin_offset);
 
 
 
@@ -120,9 +120,9 @@ extern const int    STRING (latin_offset);
 
 // Tidying up.
 #ifndef __LIBSTRING_INTERNAL__
+#undef NAME
 #undef OTHER
 #undef SELF
-#undef STRING
 #endif  // ! __LIBSTRING_INTERNAL__
 
 // Leaving the header.

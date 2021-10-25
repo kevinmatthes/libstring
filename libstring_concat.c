@@ -37,11 +37,11 @@
  * Functions.
  */
 
-str_t   STRING (concat) (SELF, OTHER)
+str_t   NAME (concat)   (SELF, OTHER)
 {
     natural_t   counter = 0x0;
-    string_t    ret     = string ( STRING (len) (self)
-                                 + STRING (len) (other)
+    string_t    ret     = string ( NAME (len) (self)
+                                 + NAME (len) (other)
                                  + 0x1
                                  );
 

@@ -37,7 +37,7 @@
  * Functions.
  */
 
-natural_t   STRING (len)    (SELF)
+natural_t   NAME (len)  (SELF)
 {
     natural_t   ret = 0x0;
 

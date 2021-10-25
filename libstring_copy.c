@@ -37,9 +37,9 @@
  * Functions.
  */
 
-str_t   STRING (copy)   (SELF)
+str_t   NAME (copy) (SELF)
 {
-    string_t    ret = string (STRING (len) (self) + 0x1);
+    string_t    ret = string (NAME (len) (self) + 0x1);
 
     for (natural_t i = 0x0; ret && self[i]; i++)
         ret[i] = self[i];

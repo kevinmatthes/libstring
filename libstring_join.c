@@ -37,12 +37,12 @@
  * Functions.
  */
 
-str_t   STRING (join)   (SELF, OTHER, const string_t by)
+str_t   NAME (join) (SELF, OTHER, const string_t by)
 {
     natural_t   counter = 0x0;
-    string_t    ret     = string ( STRING (len) (self)
-                                 + STRING (len) (other)
-                                 + STRING (len) (by)
+    string_t    ret     = string ( NAME (len) (self)
+                                 + NAME (len) (other)
+                                 + NAME (len) (by)
                                  + 0x1
                                  );
 

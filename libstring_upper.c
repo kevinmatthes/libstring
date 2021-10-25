@@ -37,13 +37,13 @@
  * Functions.
  */
 
-str_t   STRING (upper)  (SELF)
+str_t   NAME (upper)    (SELF)
 {
-    string_t    ret = STRING (copy) (self);
+    string_t    ret = NAME (copy) (self);
 
     for (natural_t i = 0x0; ret && ret[i]; i++)
         if ('a' <= ret[i] && ret[i] <= 'z')
-            ret[i]  -= STRING (latin_offset);
+            ret[i]  -= NAME (latin_offset);
 
     return ret;
 }

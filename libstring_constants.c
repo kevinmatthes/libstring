@@ -37,4 +37,4 @@
  * Constants.
  */
 
-const int   STRING (latin_offset)   = 'a' - 'A';
+const int   NAME (latin_offset) = 'a' - 'A';
