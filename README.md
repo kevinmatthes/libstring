@@ -115,3 +115,67 @@ headers of this project.
 ```
 make submodule
 ```
+
+
+
+## Content
+
+### Constants
+
+#### `const int string_latin_offset`
+
+Within the ASCII table of characters, the block of upper case Latin letters is
+separated by a certain count of characters from the block of lower case Latin
+letters.  This count is provided by this constant.
+
+When used in projects, please keep in mind that the upper case block is situated
+before the lower case block in the table such that `'A'` has a lower integer
+number then `'a'`.
+
+
+
+### Defines
+
+#### `nullptr`
+
+A pointer to use instead of `NULL`.  This pointer will be returned by all
+functions of this library in case that something went wrong.
+
+`nullptr` will always evaluate to `false`.
+
+
+
+### Functions
+
+#### `str_t string_concat (const string_t self, const string_t other)`
+
+Unite two strings.  In case this function was applied to `"A"` and `"B"` as
+`self` and `other`, respectively, the resulting string would be `"AB"`.
+
+
+
+#### `str_t string_copy (const string_t self)`
+
+Create a copy of `self`.  Therefore, a new memory area will be allocated and
+filled with the characters of `self`.
+
+
+
+### Typedefs
+
+#### `natural_t`
+
+A type for wide ranged positive integer numbers.  In case it is not already
+defined, this library will introduce it.
+
+
+
+#### `str_t`
+
+A type for generic, mutable strings.
+
+
+
+#### `string_t`
+
+A type for mutable strings with a constant position in memory.
