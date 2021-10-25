@@ -37,3 +37,14 @@
  * Functions.
  */
 
+str_t   STRING (mul)    (SELF, const natural_t times)
+{
+    const natural_t chars   = STRING (len) (self);
+    const natural_t length  = chars * times;
+    string_t        ret     = string (length + 0x1);
+
+    for (natural_t i = 0x0; ret && i < length; i++)
+        ret[i] = self[i % chars];
+
+    return ret;
+}
