@@ -138,6 +138,25 @@ void    test_eq (void)
     return;
 }
 
+void    test_join   (void)
+{
+    const string_t  test    = "Test";
+    string_t        join    = string_join (test, test, test);
+
+    printf ( "str_t string_join (const string_t self, const string_t other, const string_t by):\n"
+             "* Reference object: '%s' (%p), %lld char(s).\n"
+             "* Expectation:      '%s%s%s', %lld char(s).\n"
+             "* Result:           '%s' (%p), %lld char(s).\n\n"
+           , test, test,       string_len (test)
+           , test, test, test, string_len (test) * 0x3
+           , join, join,       string_len (join)
+           );
+
+    string_del (join);
+
+    return;
+}
+
 
 
 /**
@@ -149,7 +168,7 @@ int main (void)
     test_concat     ();
     test_constants  ();
     test_copy       ();
-    test_del        ();
+    test_eq         ();
     test_join       ();
     test_len        ();
     test_lower      ();
