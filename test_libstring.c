@@ -172,6 +172,26 @@ void    test_len    (void)
     return;
 }
 
+void    test_lower  (void)
+{
+    return;
+}
+
+void    test_mul    (void)
+{
+    return;
+}
+
+void    test_string (void)
+{
+    return;
+}
+
+void    test_upper  (void)
+{
+    return;
+}
+
 
 
 /**
@@ -187,6 +207,7 @@ int main (void)
     test_join       ();
     test_len        ();
     test_lower      ();
+    test_mul        ();
     test_string     ();
     test_upper      ();
 
