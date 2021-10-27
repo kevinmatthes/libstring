@@ -96,7 +96,7 @@ extern  str_t       string          (const natural_t size);
 // The methods.
 extern  str_t       NAME (concat)   (SELF, OTHER);
 extern  str_t       NAME (copy)     (SELF);
-extern  void        NAME (del)      (                     str_t     self);
+extern  bool        NAME (del)      (                     str_t     self);
 extern  bool        NAME (eq)       (SELF, OTHER);
 extern  str_t       NAME (join)     (SELF, OTHER,   const string_t  by);
 extern  natural_t   NAME (len)      (SELF);

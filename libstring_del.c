@@ -37,8 +37,8 @@
  * Functions.
  */
 
-inline  void    NAME (del)  (str_t self)
+inline  bool    NAME (del)  (str_t self)
 {
     free (self);
-    return;
+    return true;
 }
