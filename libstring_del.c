@@ -37,7 +37,7 @@
  * Functions.
  */
 
-inline  bool    NAME (del)  (str_t self)
+inline  bool    NAME (del)  (SLF_)
 {
     free (self);
     return true;
