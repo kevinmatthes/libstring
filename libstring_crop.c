@@ -37,3 +37,38 @@
  * Functions.
  */
 
+str_t   NAME (crop) (SELF, OTHER, WHERE)
+{
+    const natural_t diff    = NAME (len) (self) - NAME (len) (other);
+    str_t           ret     = NAME (contains) (self, other, where)
+                            ? nullptr
+                            : string (diff + 0x1);
+
+    switch (where)
+    {
+        default:
+        {
+            NAME (del) (ret);
+            ret = nullptr;
+            break;
+        };
+
+        case BEGIN:
+        {
+            for (natural_t i = 0x0; ret && ret[i]; i++)
+                ret[i] = self[i + diff];
+
+            break;
+        };
+
+        case END:
+        {
+            for (natural_t i = 0x0; ret && ret[i]; i++)
+                ret[i] = self[i];
+
+            break;
+        };
+    };
+
+    return ret;
+}
