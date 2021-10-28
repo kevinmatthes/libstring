@@ -80,6 +80,15 @@ typedef char *  str_t;
 typedef char * const    string_t;
 #endif  // ! __TYPEDEF__STRING_T__
 
+// Position within a string.
+#ifndef __TYPEDEF__TEXTPOS_T__
+#define __TYPEDEF__TEXTPOS_T__
+typedef enum    { BEGIN
+                , WITHIN
+                , END
+                } textpos_t;
+#endif // ! __TYPEDEF__TEXTPOS_T__
+
 
 
 /**
