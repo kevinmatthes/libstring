@@ -76,9 +76,9 @@ using the default settings for the build process.  All named software can be
 altered by adjusting the variables in `makefile`.
 
 Application | Variable in `makefile`    | Role during build process
-:-----------|:--------------------------|:--------------------------
+:-----------|:--------------------------|:------------------------------
 `ar`        | `ARCHIVE`                 | library creation
-`cp`        | `COPY`                    | copying of library
+`cp`        | `COPY`                    | copying of library and headers
 `gcc`       | `CC`                      | compiler
 `rm`        | `REMOVE`                  | removal of build artifacts
 `valgrind`  | `VALGRIND`                | check for memory leaks
