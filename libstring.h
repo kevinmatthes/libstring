@@ -98,14 +98,18 @@ typedef enum    { BEGIN
 // Parameter abbreviations.
 #define OTHER   const string_t  other
 #define SELF    const string_t  self
+#define SLF_    str_t           self
+#define WHERE   const textpos_t where
 
 // The constructor.
 extern  str_t       string          (const natural_t size);
 
 // The methods.
 extern  str_t       NAME (concat)   (SELF, OTHER);
+extern  bool        NAME (contains) (SELF, OTHER,   WHERE);
 extern  str_t       NAME (copy)     (SELF);
-extern  bool        NAME (del)      (                     str_t     self);
+extern  str_t       NAME (crop)     (SELF, OTHER,   WHERE);
+extern  bool        NAME (del)      (SLF_);
 extern  bool        NAME (eq)       (SELF, OTHER);
 extern  str_t       NAME (join)     (SELF, OTHER,   const string_t  by);
 extern  natural_t   NAME (len)      (SELF);
@@ -132,6 +136,8 @@ extern const int    NAME (latin_offset);
 #undef NAME
 #undef OTHER
 #undef SELF
+#undef SLF_
+#undef WHERE
 #endif  // ! __LIBSTRING_INTERNAL__
 
 // Leaving the header.
