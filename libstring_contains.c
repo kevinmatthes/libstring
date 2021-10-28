@@ -37,3 +37,37 @@
  * Functions.
  */
 
+bool    NAME (contains) (SELF, OTHER, WHERE)
+{
+    bool    ret = NAME (len) (self) >= NAME (len) (other);
+
+    switch (where)
+    {
+        default:
+            ret = false;
+            break;
+
+
+
+        case BEGIN:
+            for (natural_t i = 0x0; ret && other[i]; i++)
+                if (self[i] != other[i])
+                    ret = false;
+
+            break;
+
+
+
+        case END:
+            const natural_t diff    = NAME (len) (self)
+                                    - NAME (len) (other);
+
+            for (natural_t i = 0x0; ret && self[i]; i++)
+                if (self[i + diff] != other[i])
+                    ret = false;
+
+            break;
+    };
+
+    return ret;
+}
