@@ -57,7 +57,7 @@ void    test_upper      (void);
  * Local auxillary functions.
  */
 
-void    license (void)
+inline  void    license (void)
 {
     printf ("Copyright (C) 2021 Kevin Matthes\n"
             "\n"
