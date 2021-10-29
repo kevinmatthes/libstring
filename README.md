@@ -154,10 +154,24 @@ Unite two strings.  In case this function was applied to `"A"` and `"B"` as
 
 
 
+#### `bool      string_contains (const string_t self,   const string_t other,   const textpos_t where)`
+
+Check if `other` is a substring of `self`.  `where` is used to indicate the
+initial position to search.
+
+
+
 #### `str_t     string_copy     (const string_t self)`
 
 Create a copy of `self`.  Therefore, a new memory area will be allocated and
 filled with the characters of `self`.
+
+
+
+#### `str_t     string_crop     (const string_t self,   const string_t other,   const textpos_t where)`
+
+If `other` is a substring of `self`, it will be removed from a copy of `self`.
+`where` is used to indicate the initial position to search.
 
 
 
@@ -218,6 +232,13 @@ ones.
 
 
 ### Typedefs
+
+#### `integer_t`
+
+A type for wide ranged arbitrarily signed integer numbers.  In case it is not
+already defined, this library will introduce it.
+
+
 
 #### `natural_t`
 
