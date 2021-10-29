@@ -173,6 +173,58 @@ void    test_copy   (void)
 
 void    test_crop   (void)
 {
+    const string_t  test    = "Test";
+    const string_t  substr1 = "T";
+    const string_t  substr2 = "Test";
+    const string_t  substr3 = "est";
+    const string_t  substr4 = "Tes";
+    const string_t  substr5 = "!";
+    const string_t  substr6 = "TEST";
+    string_t        crop1   = string_crop (test, substr1, BEGIN);
+    string_t        crop2   = string_crop (test, substr2, END);
+    string_t        crop3   = string_crop (test, substr3, END);
+    string_t        crop4   = string_crop (test, substr4, BEGIN);
+    string_t        crop5   = string_crop (test, substr5, BEGIN);
+    string_t        crop6   = string_crop (test, substr6, BEGIN);
+
+    printf ( "bool string_crop (const string_t self, const string_t other, const textpos_t where):\n"
+             "* Reference object: '%s' (%p), %lld char(s).\n"
+             "* Substrings:\n"
+             "  - #1 (inside): '%s' (%p), %lld char(s).\n"
+             "  - #2 (inside): '%s' (%p), %lld char(s).\n"
+             "  - #3 (inside): '%s' (%p), %lld char(s).\n"
+             "  - #4 (inside): '%s' (%p), %lld char(s).\n"
+             "  - #5 (not in): '%s' (%p), %lld char(s).\n"
+             "  - #6 (not in): '%s' (%p), %lld char(s).\n"
+             "* Results:\n"
+             "  - #1: '%s' (%p), %lld char(s).\n"
+             "  - #2: '%s' (%p), %lld char(s).\n"
+             "  - #3: '%s' (%p), %lld char(s).\n"
+             "  - #4: '%s' (%p), %lld char(s).\n"
+             "  - #5: '%s' (%p), %lld char(s).\n"
+             "  - #6: '%s' (%p), %lld char(s).\n\n"
+           , test,      test,       string_len (test)
+           , substr1,   substr1,    string_len (substr1)
+           , substr2,   substr2,    string_len (substr2)
+           , substr3,   substr3,    string_len (substr3)
+           , substr4,   substr4,    string_len (substr4)
+           , substr5,   substr5,    string_len (substr5)
+           , substr6,   substr6,    string_len (substr6)
+           , crop1,     crop1,      string_len (crop1)
+           , crop2,     crop2,      string_len (crop2)
+           , crop3,     crop3,      string_len (crop3)
+           , crop4,     crop4,      string_len (crop4)
+           , crop5,     crop5,      string_len (crop5)
+           , crop6,     crop6,      string_len (crop6)
+           );
+
+    string_del (crop1);
+    string_del (crop2);
+    string_del (crop3);
+    string_del (crop4);
+    string_del (crop5);
+    string_del (crop6);
+
     return;
 }
 
