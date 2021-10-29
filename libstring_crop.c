@@ -39,36 +39,43 @@
 
 str_t   NAME (crop) (SELF, OTHER, WHERE)
 {
-    const natural_t diff    = NAME (len) (self) - NAME (len) (other);
-    str_t           ret     = NAME (contains) (self, other, where)
-                            ? nullptr
-                            : string (diff + 0x1);
+    str_t   ret;
 
-    switch (where)
+    if (NAME (contains) (self, other, where))
     {
-        default:
+        const natural_t len_other   = NAME (len) (other);
+        const natural_t diff        = NAME (len) (self) - len_other;
+
+        ret = string (diff + 0x1);
+
+        switch (where)
         {
-            NAME (del) (ret);
-            ret = nullptr;
-            break;
+            default:
+            {
+                NAME (del) (ret);
+                ret = nullptr;
+                break;
+            };
+
+            case BEGIN:
+            {
+                for (natural_t i = 0x0; ret && i < diff; i++)
+                    ret[i] = self[i + len_other];
+
+                break;
+            };
+
+            case END:
+            {
+                for (natural_t i = 0x0; ret && i < diff; i++)
+                    ret[i] = self[i];
+
+                break;
+            };
         };
-
-        case BEGIN:
-        {
-            for (natural_t i = 0x0; ret && ret[i]; i++)
-                ret[i] = self[i + diff];
-
-            break;
-        };
-
-        case END:
-        {
-            for (natural_t i = 0x0; ret && ret[i]; i++)
-                ret[i] = self[i];
-
-            break;
-        };
-    };
+    }
+    else
+        ret = NAME (copy) (self);
 
     return ret;
 }
