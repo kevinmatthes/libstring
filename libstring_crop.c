@@ -51,27 +51,25 @@ str_t   NAME (crop) (SELF, OTHER, WHERE)
         switch (where)
         {
             default:
-            {
                 NAME (del) (ret);
                 ret = nullptr;
                 break;
-            };
+
+
 
             case BEGIN:
-            {
                 for (natural_t i = 0x0; ret && i < diff; i++)
                     ret[i] = self[i + len_other];
 
                 break;
-            };
+
+
 
             case END:
-            {
                 for (natural_t i = 0x0; ret && i < diff; i++)
                     ret[i] = self[i];
 
                 break;
-            };
         };
     }
     else
