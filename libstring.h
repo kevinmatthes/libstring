@@ -62,6 +62,12 @@
  * Type declarations.
  */
 
+// Integer numbers.
+#ifndef __TYPDEDEF__INTEGER_T__
+#define __TYPDEDEF__INTEGER_T__
+typedef long long int   integer_t;
+#endif  // ! __TYPDEDEF__INTEGER_T__
+
 // Natural numbers.
 #ifndef __TYPEDEF__NATURAL_T__
 #define __TYPEDEF__NATURAL_T__
@@ -87,7 +93,7 @@ typedef enum    { BEGIN
                 , WITHIN
                 , END
                 } textpos_t;
-#endif // ! __TYPEDEF__TEXTPOS_T__
+#endif  // ! __TYPEDEF__TEXTPOS_T__
 
 
 
