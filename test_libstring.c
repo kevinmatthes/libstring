@@ -41,7 +41,9 @@
 void    license         (void);
 void    test_concat     (void);
 void    test_constants  (void);
+void    test_contains   (void);
 void    test_copy       (void);
+void    test_crop       (void);
 void    test_eq         (void);
 void    test_join       (void);
 void    test_len        (void);
@@ -264,7 +266,7 @@ void    test_upper  (void)
 int main (void)
 {
     license         ();
-    
+
     test_concat     ();
     test_constants  ();
     test_copy       ();
