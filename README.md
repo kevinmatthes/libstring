@@ -147,34 +147,34 @@ functions of this library in case that something went wrong.
 
 ### Functions
 
-#### `str_t string_concat (const string_t self, const string_t other)`
+#### `str_t     string_concat   (const string_t self,   const string_t other)`
 
 Unite two strings.  In case this function was applied to `"A"` and `"B"` as
 `self` and `other`, respectively, the resulting string would be `"AB"`.
 
 
 
-#### `str_t string_copy (const string_t self)`
+#### `str_t     string_copy     (const string_t self)`
 
 Create a copy of `self`.  Therefore, a new memory area will be allocated and
 filled with the characters of `self`.
 
 
 
-#### `bool string_del (str_t self)`
+#### `bool      string_del      (str_t self)`
 
 Free the allocated memory for `self`.  Returns `true` when finished.
 
 
 
-#### `bool string_eq (const string_t self, const string_t other)`
+#### `bool      string_eq       (const string_t self,   const string_t other)`
 
 Check two strings for equality.  Two strings are equal if both contain the same
 sequence of `char`s.
 
 
 
-#### `str_t string_join (const string_t self, const string_t other, const string_t by)`
+#### `str_t     string_join     (const string_t self,   const string_t other,   const string_t by)`
 
 Unite two strings by another one.  In case this function was applied to `"A"`,
 `"C"` and `"B"` as `self`, `other` and `by`, respectively, the resulting string
@@ -182,35 +182,35 @@ would be `"ABC"`.
 
 
 
-#### `natural_t string_len (const string_t self)`
+#### `natural_t string_len      (const string_t self)`
 
 Determine the effective count of characters of a string.  For instance, `"A"`
 would have a length of `0x1`.
 
 
 
-#### `str_t string_lower (const string_t lower)`
+#### `str_t     string_lower    (const string_t self)`
 
 Create a copy of `self` whose upper case Latin letters were turned to lower case
 ones.
 
 
 
-#### `str_t string_mul (const string_t self, const natural_t times)`
+#### `str_t     string_mul      (const string_t self,   const natural_t times)`
 
 Multiply a string's content.  For instance, `"A"` and `0x3` as parameters would
 imply `"AAA"` as result.
 
 
 
-#### `str_t string (const natural_t size)`
+#### `str_t     string          (const natural_t size)`
 
 Allocate `size` bytes of memory for a new string.  Each byte is initialised with
 `0x0`.
 
 
 
-#### `str_t string_upper (const natural_t self)`
+#### `str_t     string_upper    (const natural_t self)`
 
 Create a copy of `self` whose lower case Latin letters were turned to upper case
 ones.
