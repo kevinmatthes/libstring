@@ -265,7 +265,7 @@ A type in order to determine from which position within a string a certain
 operation shall be processed.  Possible values are:
 
 Value       | Meaning
-:-----------|:-----------------------------------------
-`BEGIN`     | operate from the first character forwards
-`END`       | operate from the last character backwards
-`WITHIN`    | operate from a position inside the string
+:-----------|:--------------------------------------------
+`BEGIN`     | operate from the first character on forwards
+`END`       | operate from the last character on backwards
+`WITHIN`    | operate from a position inside the string on

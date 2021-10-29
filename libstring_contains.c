@@ -1,5 +1,5 @@
 /**
- * libstring_contains.c : test if string contains a given substring.
+ * libstring_contains.c : test if a string contains a given substring.
  *
  * See `LICENSE' for full license.
  * See `README.md' for project details.
