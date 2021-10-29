@@ -78,8 +78,11 @@ submodule: $(HEADERS) $(LIBRARY)
 	$(COPY) $^ ../
 
 .PHONY: tidy
-tidy: $(APP) $(OBJECTS)
+tidy: $(APP) $(LIBRARY) $(OBJECTS)
 	$(REMOVE) $^
+
+.PHONY: update
+update: submodule tidy
 
 .PHONY: valgrind
 valgrind: $(APP)
