@@ -108,6 +108,50 @@ void    test_constants  (void)
     return;
 }
 
+void    test_contains   (void)
+{
+    const string_t  test    = "Test";
+    const string_t  substr1 = "T";
+    const string_t  substr2 = "Test";
+    const string_t  substr3 = "est";
+    const string_t  substr4 = "Tes";
+    const string_t  substr5 = "!";
+    const string_t  substr6 = "TEST";
+
+    printf ( "bool string_contains (const string_t self, const string_t other, const textpos_t where):\n"
+             "* Reference object: '%s' (%p), %lld char(s).\n"
+             "* Substrings:\n"
+             "  - #1 (inside): '%s' (%p), %lld char(s).\n"
+             "  - #2 (inside): '%s' (%p), %lld char(s).\n"
+             "  - #3 (inside): '%s' (%p), %lld char(s).\n"
+             "  - #4 (inside): '%s' (%p), %lld char(s).\n"
+             "  - #5 (not in): '%s' (%p), %lld char(s).\n"
+             "  - #6 (not in): '%s' (%p), %lld char(s).\n"
+             "* Results:\n"
+             "  - #1: %s.\n"
+             "  - #2: %s.\n"
+             "  - #3: %s.\n"
+             "  - #4: %s.\n"
+             "  - #5: %s.\n"
+             "  - #6: %s.\n\n"
+           , test,      test,       string_len (test)
+           , substr1,   substr1,    string_len (substr1)
+           , substr2,   substr2,    string_len (substr2)
+           , substr3,   substr3,    string_len (substr3)
+           , substr4,   substr4,    string_len (substr4)
+           , substr5,   substr5,    string_len (substr5)
+           , substr6,   substr6,    string_len (substr6)
+           , string_contains (test, substr1, BEGIN) ? "true"    : "false"
+           , string_contains (test, substr2, END)   ? "true"    : "false"
+           , string_contains (test, substr3, END)   ? "true"    : "false"
+           , string_contains (test, substr4, BEGIN) ? "true"    : "false"
+           , string_contains (test, substr5, BEGIN) ? "true"    : "false"
+           , string_contains (test, substr6, BEGIN) ? "true"    : "false"
+           );
+
+    return;
+}
+
 void    test_copy   (void)
 {
     const string_t  test    = "Test";
@@ -124,6 +168,11 @@ void    test_copy   (void)
 
     string_del (copy);
 
+    return;
+}
+
+void    test_crop   (void)
+{
     return;
 }
 
@@ -269,7 +318,9 @@ int main (void)
 
     test_concat     ();
     test_constants  ();
+    test_contains   ();
     test_copy       ();
+    test_crop       ();
     test_eq         ();
     test_join       ();
     test_len        ();
