@@ -145,7 +145,7 @@ void    test_contains   (void)
              "  - #09: %s.\n"
              "  - #10: %s.\n"
              "  - #11: %s.\n"
-             "  - #12: %s.\n"
+             "  - #12: %s.\n\n"
            , test,      test,       string_len (test)
            , substr1,   substr1,    string_len (substr1)
            , substr2,   substr2,    string_len (substr2)
