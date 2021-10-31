@@ -121,19 +121,31 @@ void    test_contains   (void)
     printf ( "bool string_contains (const string_t self, const string_t other, const textpos_t where):\n"
              "* Reference object: '%s' (%p), %lld char(s).\n"
              "* Substrings:\n"
-             "  - #1 (inside): '%s' (%p), %lld char(s).\n"
-             "  - #2 (inside): '%s' (%p), %lld char(s).\n"
-             "  - #3 (inside): '%s' (%p), %lld char(s).\n"
-             "  - #4 (inside): '%s' (%p), %lld char(s).\n"
-             "  - #5 (not in): '%s' (%p), %lld char(s).\n"
-             "  - #6 (not in): '%s' (%p), %lld char(s).\n"
+             "  - #01 (inside, BEGIN ): '%s' (%p), %lld char(s).\n"
+             "  - #02 (inside, END   ): '%s' (%p), %lld char(s).\n"
+             "  - #03 (inside, END   ): '%s' (%p), %lld char(s).\n"
+             "  - #04 (inside, BEGIN ): '%s' (%p), %lld char(s).\n"
+             "  - #05 (not in, BEGIN ): '%s' (%p), %lld char(s).\n"
+             "  - #06 (not in, BEGIN ): '%s' (%p), %lld char(s).\n"
+             "  - #07 (inside, WITHIN): '%s' (%p), %lld char(s).\n"
+             "  - #08 (inside, WITHIN): '%s' (%p), %lld char(s).\n"
+             "  - #09 (inside, WITHIN): '%s' (%p), %lld char(s).\n"
+             "  - #10 (inside, WITHIN): '%s' (%p), %lld char(s).\n"
+             "  - #11 (not in, WITHIN): '%s' (%p), %lld char(s).\n"
+             "  - #12 (not in, WITHIN): '%s' (%p), %lld char(s).\n"
              "* Results:\n"
-             "  - #1: %s.\n"
-             "  - #2: %s.\n"
-             "  - #3: %s.\n"
-             "  - #4: %s.\n"
-             "  - #5: %s.\n"
-             "  - #6: %s.\n\n"
+             "  - #01: %s.\n"
+             "  - #02: %s.\n"
+             "  - #03: %s.\n"
+             "  - #04: %s.\n"
+             "  - #05: %s.\n"
+             "  - #06: %s.\n"
+             "  - #07: %s.\n"
+             "  - #08: %s.\n"
+             "  - #09: %s.\n"
+             "  - #10: %s.\n"
+             "  - #11: %s.\n"
+             "  - #12: %s.\n"
            , test,      test,       string_len (test)
            , substr1,   substr1,    string_len (substr1)
            , substr2,   substr2,    string_len (substr2)
@@ -141,12 +153,24 @@ void    test_contains   (void)
            , substr4,   substr4,    string_len (substr4)
            , substr5,   substr5,    string_len (substr5)
            , substr6,   substr6,    string_len (substr6)
-           , string_contains (test, substr1, BEGIN) ? "true"    : "false"
-           , string_contains (test, substr2, END)   ? "true"    : "false"
-           , string_contains (test, substr3, END)   ? "true"    : "false"
-           , string_contains (test, substr4, BEGIN) ? "true"    : "false"
-           , string_contains (test, substr5, BEGIN) ? "true"    : "false"
-           , string_contains (test, substr6, BEGIN) ? "true"    : "false"
+           , substr1,   substr1,    string_len (substr1)
+           , substr2,   substr2,    string_len (substr2)
+           , substr3,   substr3,    string_len (substr3)
+           , substr4,   substr4,    string_len (substr4)
+           , substr5,   substr5,    string_len (substr5)
+           , substr6,   substr6,    string_len (substr6)
+           , string_contains (test, substr1, BEGIN)     ? "true"    : "false"
+           , string_contains (test, substr2, END)       ? "true"    : "false"
+           , string_contains (test, substr3, END)       ? "true"    : "false"
+           , string_contains (test, substr4, BEGIN)     ? "true"    : "false"
+           , string_contains (test, substr5, BEGIN)     ? "true"    : "false"
+           , string_contains (test, substr6, BEGIN)     ? "true"    : "false"
+           , string_contains (test, substr1, WITHIN)    ? "true"    : "false"
+           , string_contains (test, substr2, WITHIN)    ? "true"    : "false"
+           , string_contains (test, substr3, WITHIN)    ? "true"    : "false"
+           , string_contains (test, substr4, WITHIN)    ? "true"    : "false"
+           , string_contains (test, substr5, WITHIN)    ? "true"    : "false"
+           , string_contains (test, substr6, WITHIN)    ? "true"    : "false"
            );
 
     return;

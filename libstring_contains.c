@@ -41,6 +41,7 @@ bool    NAME (contains) (SELF, OTHER, WHERE)
 {
     const integer_t diff    = NAME (len) (self) - NAME (len) (other);
     bool            ret     = diff >= 0x0;
+    bool            within  = false;
 
     switch (where)
     {
@@ -63,6 +64,16 @@ bool    NAME (contains) (SELF, OTHER, WHERE)
             for (natural_t i = 0x0; ret && other[i]; i++)
                 if (self[i + diff] != other[i])
                     ret = false;
+
+            break;
+
+
+
+        case WITHIN:
+            for (natural_t i = 0x0; ret && ! within && self[i]; i++)
+                within = NAME (contains) (self + i, other, BEGIN);
+
+            ret = within;
 
             break;
     };
