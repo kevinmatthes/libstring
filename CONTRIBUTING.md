@@ -72,6 +72,11 @@ int foo ( type_t one
 }
 ```
 
+Closing curly brackets (`}`) are always followed by a semicolon (`;`) except
+where the used standard and, hence, the compiler denies it.  This ensures that
+after a `typedef` of structs, for example, the mandatory semicolon will never be
+forgotten.
+
 
 
 ### Compiler and options
@@ -127,6 +132,24 @@ Within a declaration list, all tokens need be aligned as stated except that the
 current block does not need to fit the alignment of a neighbouring one.
 
 These rules also hold for the declaration of functions in a header.
+
+
+
+### Identifiers
+
+Identifiers shall be chosen such that people who are not involved regarding the
+source code design might also understand the meaning and content of the symbols
+intuitively.
+
+Hungarian Notation and its variations **must not** be used.  Instead, users are
+encouraged to give identifiers like `maximum` to a variable which holds the
+greatest value of an integer array, for instance.
+
+In case that symbols are exported, such as functions or constants, they all must
+carry the project's common prefix, specified by the `NAME` macro.  Even internal
+functions shall be mangled by `NAME` since this benefits not only the continuity
+during the process of coding but also assures the case that this function might
+be exported, as well, in a future version of the project.
 
 
 
@@ -201,9 +224,9 @@ If the exported symbols share common prefixes, they must be mangled using the
 preprocessor macro `NAME(identifier)`.  This macro has be removed at the end of
 the header unless an according symbolic constant is defined.  This constant
 should be passed to the compiler during the build process.  The macro is
-mandatory to use in all source files when a symbol requires the prefix.
-Internal symbols do not need to be mangled.  Anyway, a mangling is recommended,
-as well, since they may be exported in a future version.
+mandatory to use in all source files when a symbol requires the prefix. Internal
+symbols do not need to be mangled.  Anyway, a mangling is recommended, as well,
+since they may be exported in a future version.
 
 Common parameter declarations for exported functions can be abbreviated, as
 well, for instance identifiers like `self` and `other`.  Once defined, they
@@ -229,6 +252,65 @@ this convention does not need to be applied.  Such functions have to be marked
 contain more than one return statement, **if and only if** their performance is
 optimised due to multiple statements.  They need to contain at least one, even
 if they are `void`.
+
+
+
+### Spacing
+
+When ending a block, **no** blank lines must be noted at the end of it.
+
+Control flow elements, such as `if`, `for`, `switch` and so on shall be
+separated a single blank line from the previous sequence of code.  This holds
+especially for the cases that they not only contain a single line of code each.
+
+Except those rules where according exceptions are defined, symbols should be
+aligned using tab stops as defined above in order to achieve a table-like
+structure of the code.  This is only relevant if a sequence of code contains
+subsequent assignments, for instance.
+
+```
+ret         = true;
+variable    = 0x2A;
+```
+
+Again, as for the declaration blocks / declaration lists, sequences which are
+separated by a single blank line from each other do not need to fit the
+alignment of their neighbouring blocks / sequences.
+
+Operators have to be separated by at least one space character from their
+operands.  This also holds for negation (`!`).  In case that sequences of code
+should include not only ordinary assignments (`=`) but also shortcut assignments
+(e. g. `+=`), they are align such that the first column of the operator with the
+most characters for representation which will be reached after a single space
+character is considered the reference for the whole block / sequence:
+
+```
+i   += 0x2;
+j   =  0x0;
+```
+
+Like the GNU coding style states, functions as well as function-like operators,
+such as `sizeof`, shall be separated by a single space character from the
+following parenthesis except:
+
+* the parenthesis will introduce a parameter list
+* the parenthesis is used to define a preprocessor macro
+
+In these cases, the according rules will be applied.  For the case of the macro
+definition, the usage of a single space character is obviously causing
+unintended side effects.
+
+```
+#define MACRO(arg)  prefix_ ## arg
+
+void    foo_    (void)
+{
+    return;
+}
+```
+
+The rule for function declaration does also hold for preprocessor macro
+definition.
 
 
 
