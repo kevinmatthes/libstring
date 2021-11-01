@@ -63,6 +63,23 @@ one.
 
 
 
+### Name mangling
+
+If the exported symbols share common prefixes, they must be mangled using the
+preprocessor macro `NAME(identifier)`.  This macro has be removed at the end of
+the header unless an according symbolic constant is defined.  This constant
+should be passed to the compiler during the build process.  The macro is
+mandatory to use in all source files when a symbol requires the prefix.
+Internal symbols do not need to be mangled.  Anyway, a mangling is recommended,
+as well, since they may be exported in future version.
+
+Common parameter declarations for exported functions can be abbreviated, as
+well, for instance identifiers like `self` and `other`.  Once defined, they
+should be used just like the name mangling macro, including the automatic
+cleaning once the header is left.
+
+
+
 ### Standard
 
 All C source code needs to apply **C99, ANSI C**.  The main aspect of this
