@@ -90,6 +90,14 @@ the function has to be adjusted such that only return statement is left.  This
 may be done, for instance, by using Boolean values as flags for refactoring the
 control flow of the function.
 
+The only reasonable exception to this convention is the argument of performance.
+If the performance of a function is critical for the success of the project,
+this convention does not need to be applied.  Such functions have to be marked
+`inline`.  Hence, `inline` functions are the only ones which are allowed to
+contain more than one return statement, **if and only if** their performance can
+be optimised by multiple statements.  They need to contain at least one, even if
+they are `void`.
+
 
 
 ### Standard
@@ -104,3 +112,10 @@ the following options for the compiler `gcc`:
 
 * `-std=c99`
 * `-Wpedantic`
+
+
+
+### `void` parameter lists
+
+In case that functions do not need to receive any data as parameters, their
+parameter list **must** be filled with `void` instead.
