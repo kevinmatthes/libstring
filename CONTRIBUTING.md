@@ -94,12 +94,12 @@ beginning of a function where auxillary variables for the calculation are
 introduced.
 
 There, all types, identifiers and values need to be aligned by tab stops in
-order to achieve a table-like structure of the whole declaration list:
+order to achieve a table-like structure for the whole declaration list:
 
 ```
 bool        ret     = false;
-const int   answer  = 0x42;
-const int   number  = 0x23;
+const int   answer  = 0x2A;
+const int   number  = 0x17;
 const int   value   = 0x0;
 string_t    text    = "foo";
 ```
@@ -108,8 +108,8 @@ If possible, symbols shall be grouped alphabetically be first their types and
 then their identifiers.  Thereby, the qualifier `const` is considered part of
 the type name and, hence, to be shelved in within the "c" section.
 
-In case the grouping by types should fail due to dependencies of the variable's
-values, the concerning declaration is be made in another declaration list /
+In case the grouping by types should fail due to dependencies of the variables'
+values, the concerning declaration shall be made in another declaration list /
 declaration block underneath the first one.  The second block shall be separated
 by exactly one blank line from the first one and can be considered the "Block of
 Declarations of Second Degree" since the first block is required in order to
@@ -253,7 +253,7 @@ the following options for the compiler `gcc`:
 need to bring a security feature such that, in case the type was already
 defined, no name clashes will occur.
 
-The security feature has be implemented as `#define` check as follows:
+The security feature shall be implemented as `#define` check as follows:
 
 ```
 #ifndef __TYPEDEF__TYPE_T__
