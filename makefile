@@ -50,7 +50,7 @@ SOURCE   := $(wildcard ./libstring_*.c)
 TESTARGS :=
 TESTING  := ./test_libstring.c
 TESTLINK := -L. -lstring
-VALGRIND := valgrind
+VALGRIND := valgrind.log
 VFLAGS   := --leak-check=full --redzone-size=200 --show-leak-kinds=all
 
 
@@ -62,7 +62,7 @@ VFLAGS   := --leak-check=full --redzone-size=200 --show-leak-kinds=all
 ##
 
 .PHONY: default
-default: valgrind tidy
+default: $(VALGRIND) tidy
 
 $(APP): $(LIBRARY) $(TESTING)
 	$(CC) $(CFLAGS) $(TESTING) $(TESTLINK) -o $@
@@ -84,6 +84,5 @@ tidy: $(APP) $(LIBRARY) $(OBJECTS)
 .PHONY: update
 update: submodule tidy
 
-.PHONY: valgrind
-valgrind: $(APP)
-	$(VALGRIND) $(VFLAGS) ./$^ $(TESTARGS)
+$(VALGRIND): $(APP)
+	valgrind $(VFLAGS) ./$^ $(TESTARGS) 2> ./$@
