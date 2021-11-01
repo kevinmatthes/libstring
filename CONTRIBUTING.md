@@ -87,6 +87,49 @@ The default C compiler for this project is **`gcc`**.  It has to be called with
 
 
 
+### Declaration lists and `const`
+
+In some situations, multiple symbols need to be declared.  For instance, at the
+beginning of a function where auxillary variables for the calculation are
+introduced.
+
+There, all types, identifiers and values need to be aligned by tab stops in
+order to achieve a table-like structure of the whole declaration list:
+
+```
+bool        ret     = false;
+const int   answer  = 0x42;
+const int   number  = 0x23;
+const int   value   = 0x0;
+string_t    text    = "foo";
+```
+
+If possible, symbols shall be grouped alphabetically be first their types and
+then their identifiers.  Thereby, the qualifier `const` is considered part of
+the type name and, hence, to be shelved in within the "c" section.
+
+In case the grouping by types should fail due to dependencies of the variable's
+values, the concerning declaration is be made in another declaration list /
+declaration block underneath the first one.  The second block shall be separated
+by exactly one blank line from the first one and can be considered the "Block of
+Declarations of Second Degree" since the first block is required in order to
+introduce the second one.  The same holds for third degree and so on.  If
+possible, the identifiers should be adjusted rather than opening a new block of
+declarations, especially if it would only contain a single declaration.
+
+The qualifier `const` is to use whenever possible and to annotate on the
+left-hand side of a type name, like `const int`.
+
+Per line, only **one** declaration is possible.  This benefits the editing in
+case that a certain variable proves obsolete.
+
+Within a declaration list, all tokens need be aligned as stated except that the
+current block does not need to fit the alignment of a neighbouring one.
+
+These rules also hold for the declaration of functions in a header.
+
+
+
 ### Indentation
 
 Indentation is processed by **four spaces** per level.  In case some situations
@@ -132,6 +175,23 @@ As in the terminology of LaTeX, there will be *no* **French Spacing** such that
 after finishing a phrase, two space characters or a line break must be placed.
 This is only required if there will be another sentence following the previous
 one.
+
+
+
+### Loop-breaking commands and `goto` statements
+
+The design of a function shall exclude the necessity of any statements like
+
+* `break` (except within `switch` statements)
+* `continue`
+* `goto`
+
+Instead, Boolean values shall be used as flags in order to adjust the control
+flow of a function.
+
+In case this rule cannot be applied for some reasons, any of those tokens except
+`goto` will be tolerated if there is a good reason for the application of these
+key words.
 
 
 
@@ -184,6 +244,28 @@ the following options for the compiler `gcc`:
 
 * `-std=c99`
 * `-Wpedantic`
+
+
+
+### Typedefs and types
+
+`typedef` statements have to be made in header files only.  Furthermore, they
+need to bring a security feature such that, in case the type was already
+defined, no name clashes will occur.
+
+The security feature has be implemented as `#define` check as follows:
+
+```
+#ifndef __TYPEDEF__TYPE_T__
+#define __TYPEDEF__TYPE_T__
+typedef int type_t;
+#endif  // ! __TYPEDEF__TYPE_T__
+```
+
+After the `typedef` token, the next tab stop needs to be reached.  The same
+holds for types in general, except in cases where exceptions of the tab stop
+rule allow to use a single space character, such as in parameter lists, for
+instance.
 
 
 
