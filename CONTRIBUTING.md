@@ -109,7 +109,7 @@ const int   value   = 0x0;
 string_t    text    = "foo";
 ```
 
-If possible, symbols shall be grouped alphabetically be first their types and
+If possible, symbols shall be grouped alphabetically by first their types and
 then their identifiers.  Thereby, the qualifier `const` is considered part of
 the type name and, hence, to be shelved in within the "c" section.
 
@@ -161,15 +161,15 @@ assumed to evaluate as a sequence of four spaces.
 
 After type names, the next lexeme must start at the next tab stop.  Hence, after
 entering a type name, the tabulator key needs to be pressed once.  An exception
-to this rule are declaration sections and parameter lists.  For instance, this
-rule would be applied to the signature of a function.
+to this rule are parameter lists.  For instance, this rule would be applied to
+the signature of a function.
 
 After entering an identifier, such as a function's or variable's name, for
 example, the next lexeme shall start at the next tab stop, too.  This, again,
 needs to be applied to a function's declaration.
 
 A `return` statement does not need to be followed by a tab stop but just one
-space character, followed by either the value to return or a semicolon.  In case
+space character, followed by the value to return in case there is one.  In case
 that nothing is returned, `return` and `;` must not be separated by spaces.
 
 Example:
@@ -221,12 +221,12 @@ key words.
 ### Name mangling
 
 If the exported symbols share common prefixes, they must be mangled using the
-preprocessor macro `NAME(identifier)`.  This macro has be removed at the end of
-the header unless an according symbolic constant is defined.  This constant
+preprocessor macro `NAME(identifier)`.  This macro has to be removed at the end
+of the header unless an according symbolic constant is defined.  This constant
 should be passed to the compiler during the build process.  The macro is
-mandatory to use in all source files when a symbol requires the prefix. Internal
-symbols do not need to be mangled.  Anyway, a mangling is recommended, as well,
-since they may be exported in a future version.
+mandatory to use in all source files when a symbol requires the prefix.
+Internal symbols do not need to be mangled.  Anyway, a mangling is recommended,
+as well, since they may be exported in a future version.
 
 Common parameter declarations for exported functions can be abbreviated, as
 well, for instance identifiers like `self` and `other`.  Once defined, they
@@ -317,7 +317,7 @@ definition except the spacing between indentifier and parenthesis.
 ### Standard
 
 All C source code needs to apply **C99, ANSI C**.  The main aspect of this
-standard is that function definitions *must not* be finished with a semicola
+standard is that function definitions *must not* be finished with a semicolon
 character (`;`) as other standards allow it. The decision to use C99 as standard
 shall ensure atmost portability of the project.
 
@@ -332,8 +332,8 @@ the following options for the compiler `gcc`:
 ### Typedefs and types
 
 `typedef` statements have to be made in header files only.  Furthermore, they
-need to bring a security feature such that, in case the type was already
-defined, no name clashes will occur.
+need to bring a security feature with them such that, in case the type was
+already defined, no name clashes will occur.
 
 The security feature shall be implemented as `#define` check as follows:
 
