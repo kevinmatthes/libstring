@@ -71,12 +71,24 @@ the header unless an according symbolic constant is defined.  This constant
 should be passed to the compiler during the build process.  The macro is
 mandatory to use in all source files when a symbol requires the prefix.
 Internal symbols do not need to be mangled.  Anyway, a mangling is recommended,
-as well, since they may be exported in future version.
+as well, since they may be exported in a future version.
 
 Common parameter declarations for exported functions can be abbreviated, as
 well, for instance identifiers like `self` and `other`.  Once defined, they
 should be used just like the name mangling macro, including the automatic
 cleaning once the header is left.
+
+
+
+### Return statements
+
+Any function must contain exactly **one** `return` statement.  This also
+includes `void` functions.
+
+In case that functions may be quit at different positions, the general design of
+the function has to be adjusted such that only return statement is left.  This
+may be done, for instance, by using Boolean values as flags for refactoring the
+control flow of the function.
 
 
 
