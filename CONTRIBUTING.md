@@ -109,6 +109,11 @@ that nothing is returned, `return` and `;` must not be separated by spaces.
 Example:
 
 ```
+void    foo (void)
+{
+    return;
+}
+
 type_t  foo_    (type_t parameter)
 {
     type_t  ret_    = ONE;
