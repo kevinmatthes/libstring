@@ -280,9 +280,9 @@ alignment of their neighbouring blocks / sequences.
 Operators have to be separated by at least one space character from their
 operands.  This also holds for negation (`!`).  In case that sequences of code
 should include not only ordinary assignments (`=`) but also shortcut assignments
-(e. g. `+=`), they are align such that the first column of the operator with the
-most characters for representation which will be reached after a single space
-character is considered the reference for the whole block / sequence:
+(e. g. `+=`), they are aligned such that the first column of the operator with
+the most characters for representation which will be reached after a single
+space character is considered the reference for the whole block / sequence:
 
 ```
 i   += 0x2;
@@ -291,7 +291,7 @@ j   =  0x0;
 
 Like the GNU coding style states, functions as well as function-like operators,
 such as `sizeof`, shall be separated by a single space character from the
-following parenthesis except:
+following parenthesis except in case that
 
 * the parenthesis will introduce a parameter list
 * the parenthesis is used to define a preprocessor macro
@@ -310,7 +310,7 @@ void    foo_    (void)
 ```
 
 The rule for function declaration does also hold for preprocessor macro
-definition.
+definition except the spacing between indentifier and parenthesis.
 
 
 
