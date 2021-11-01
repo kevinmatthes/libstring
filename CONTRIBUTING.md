@@ -99,11 +99,11 @@ to this rule are declaration sections and parameter lists.  For instance, this
 rule would be applied to the signature of a function.
 
 After entering an identifier, such as a function's or variable's name, for
-example, the next lexeme shall start at next tab stop, too.  This, again, needs
-to be applied to a function's declaration.
+example, the next lexeme shall start at the next tab stop, too.  This, again,
+needs to be applied to a function's declaration.
 
 A `return` statement does not need to be followed by a tab stop but just one
-space character, followed by either the value to return or a semicola.  In case
+space character, followed by either the value to return or a semicolon.  In case
 that nothing is returned, `return` and `;` must not be separated by spaces.
 
 Example:
