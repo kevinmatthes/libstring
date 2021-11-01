@@ -41,7 +41,7 @@ since they may differ between different languages.
 ### Brackets
 
 Opening brackets of blocks (`{`) require their own line each.  The indentation
-has to be same like the one of the expression opening it.  For instance:
+has to be the same like the one of the expression opening it.  For instance:
 
 ```
 int foo (void)
@@ -50,8 +50,8 @@ int foo (void)
 }
 ```
 
-An exception to this rule are `enum`s and array initialisation which are counted
-to the further lists.
+An exception to this rule are `enum`s and array initialisations which are
+counted to the category of further lists.
 
 Any other lists shall be handled according to the *Haskell* conventions, such as
 parameter lists, `enum` definitions and array initialisations, for instance.  An
@@ -84,6 +84,37 @@ The default C compiler for this project is **`gcc`**.  It has to be called with
 * `-Werror`
 * `-Wextra`
 * `-Wpedantic`
+
+
+
+### Indentation
+
+Indentation is processed by **four spaces** per level.  In case some situations
+should require real tab characters, i. e. `\t`, the tab character shall be
+assumed to evaluate as a sequence of four spaces.
+
+After type names, the next lexeme must start at the next tab stop.  Hence, after
+entering a type name, the tabulator key needs to be pressed once.  An exception
+to this rule are declaration sections and parameter lists.  For instance, this
+rule would be applied to the signature of a function.
+
+After entering an identifier, such as a function's or variable's name, for
+example, the next lexeme shall start at next tab stop, too.  This, again, needs
+to be applied to a function's declaration.
+
+A `return` statement does not need to be followed by a tab stop but just one
+space character, followed by either the value to return or a semicola.  In case
+that nothing is returned, `return` and `;` must not be separated by spaces.
+
+Example:
+
+```
+type_t  foo_    (type_t parameter)
+{
+    type_t  ret_    = ONE;
+    return ret_;
+}
+```
 
 
 
