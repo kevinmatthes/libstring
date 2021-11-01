@@ -38,6 +38,42 @@ since they may differ between different languages.
 
 ## C
 
+### Brackets
+
+Opening brackets of blocks (`{`) require their own line each.  The indentation
+has to be same like the one of the expression opening it.  For instance:
+
+```
+int foo (void)
+{
+    return 0x0;
+}
+```
+
+An exception to this rule are `enum`s and array initialisation which are counted
+to the further lists.
+
+Any other lists shall be handled according to the *Haskell* conventions, such as
+parameter lists, `enum` definitions and array initialisations, for instance.  An
+example is as follows:
+
+```
+typedef enum    { ONE
+                , TWO
+                , THREE
+                } type_t;
+
+int foo ( type_t one
+        , type_t two
+        , type_t three
+        )
+{
+    return 0x0;
+}
+```
+
+
+
 ### Compiler and options
 
 The default C compiler for this project is **`gcc`**.  It has to be called with
@@ -94,9 +130,9 @@ The only reasonable exception to this convention is the argument of performance.
 If the performance of a function is critical for the success of the project,
 this convention does not need to be applied.  Such functions have to be marked
 `inline`.  Hence, `inline` functions are the only ones which are allowed to
-contain more than one return statement, **if and only if** their performance can
-be optimised by multiple statements.  They need to contain at least one, even if
-they are `void`.
+contain more than one return statement, **if and only if** their performance is
+optimised due to multiple statements.  They need to contain at least one, even
+if they are `void`.
 
 
 
