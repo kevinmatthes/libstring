@@ -36,3 +36,4 @@ test-libstring
 *.a
 *.log
 *.o
+*.pdf
