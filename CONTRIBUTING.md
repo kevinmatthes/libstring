@@ -38,6 +38,19 @@ since they may differ between different languages.
 
 ## C
 
+### Compiler and options
+
+The default C compiler for this project is **`gcc`**.  It has to be called with
+*at least* the following flags and options:
+
+* `-std=c99`
+* `-Wall`
+* `-Werror`
+* `-Wextra`
+* `-Wpedantic`
+
+
+
 ### Language
 
 All code and comments shall be written using **British English** with *-ise*
@@ -54,8 +67,8 @@ one.
 
 All C source code needs to apply **C99, ANSI C**.  The main aspect of this
 standard is that function definitions *must not* be finished with a semicola
-character (`;`) as other standards allow it. The decision to use the C99
-standard shall ensure atmost portability of the project.
+character (`;`) as other standards allow it. The decision to use C99 as standard
+shall ensure atmost portability of the project.
 
 If the required standard is applied correctly can be tested by compiling with
 the following options for the compiler `gcc`:
